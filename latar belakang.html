@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATAR BELAKANG - DOSSIER 64: KUDETA BRAZIL 1964</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            border-bottom: 2px solid #8b0000;
+            background-color: #0a0a0a;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .dossier {
+            font-size: 1.5rem;
+            color: #8b0000;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .year {
+            font-size: 2rem;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 10px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* PAGE TITLE */
+        .page-title {
+            font-size: 2.2rem;
+            color: #8b0000;
+            margin-bottom: 10px;
+            border-left: 5px solid #8b0000;
+            padding-left: 15px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+            font-style: italic;
+            padding-left: 20px;
+        }
+
+        /* PHOTO SECTION */
+        .photo-section {
+            margin-bottom: 30px;
+        }
+
+        .main-photo {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border: 1px solid #444;
+            margin-bottom: 20px;
+        }
+
+        .main-photo img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #8b0000;
+            display: block;
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        /* PHOTO GRID 2 KOLOM */
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .photo-card {
+            background-color: #2a2a2a;
+            padding: 10px;
+            border: 1px solid #444;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 1px solid #8b0000;
+        }
+
+        .photo-card p {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #bbb;
+            text-align: center;
+        }
+
+        /* CONTENT CARD */
+        .content-card {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-left: 5px solid #8b0000;
+            border-bottom: 1px solid #444;
+            margin-bottom: 25px;
+        }
+
+        .content-card h3 {
+            color: #8b0000;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 1px dotted #444;
+            padding-bottom: 8px;
+        }
+
+        .content-card h4 {
+            color: #8b0000;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        /* QUOTE BOX */
+        .quote-box {
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+        .quote-box p {
+            color: #8b0000;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        .quote-source {
+            text-align: right;
+            color: #888;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* STAT BOX */
+        .stat-box {
+            display: inline-block;
+            background-color: #1a1a1a;
+            border: 2px solid #8b0000;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            font-weight: bold;
+            color: #8b0000;
+        }
+
+        /* BUTTON */
+        .btn-classified {
+            background-color: transparent;
+            color: #8b0000;
+            border: 2px solid #8b0000;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin: 20px 0 10px 0;
+        }
+
+        .btn-classified:hover {
+            background-color: #8b0000;
+            color: #fff;
+        }
+
+        /* CLASSIFIED DETAIL */
+        .classified-detail {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+        }
+
+        .classified-detail h4 {
+            color: #8b0000;
+            margin-bottom: 10px;
+        }
+
+        .classified-detail ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .classified-detail li {
+            margin-bottom: 10px;
+            color: #ccc;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .classified-detail li:before {
+            content: "►";
+            color: #8b0000;
+            position: absolute;
+            left: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* FOOTER */
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            margin: 15% auto;
+            padding: 30px;
+            border: 3px solid #8b0000;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            color: #8b0000;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .modal-content button {
+            background-color: #8b0000;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .close {
+            color: #8b0000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .photo-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="dossier"># DOSSIER</span>
+                <span class="year">64</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">BERANDA</a></li>
+                <li><a href="latar belakang.html" class="active">LATAR BELAKANG</a></li>
+                <li><a href="jalannya kudeta.html">JALANNYA KUDETA</a></li>
+                <li><a href="pasca kudeta.html">PASCA KUDETA</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT - HALAMAN LATAR BELAKANG -->
+    <div class="container">
+        <!-- HEADER -->
+        <h1 class="page-title">LATAR BELAKANG</h1>
+        <div class="sub-title">KRISIS POLITIK & EKONOMI BRAZIL (1961-1964)</div>
+
+        <!-- FOTO UTAMA -->
+        <div class="photo-section">
+            <div class="main-photo">
+                <img src="assets/images/Presiden Joao Goulart.jpg" alt="Presiden Joao Goulart">
+                <p class="photo-caption">Presiden João Goulart (Jango), 1962 - Arquivo Nacional Brasil</p>
+            </div>
+        </div>
+
+        <!-- KONTEN 1: KRISIS POLITIK -->
+        <div class="content-card">
+            <h3>KRISIS POLITIK 1961-1964</h3>
+            <p>Pada tanggal 25 Agustus 1961, Presiden Jânio Quadros mengundurkan diri secara mendadak, menciptakan kekosongan kekuasaan yang memicu krisis politik terbesar dalam sejarah Brazil modern. Wakil Presiden João Goulart (Jango) saat itu sedang melakukan kunjungan dagang ke Republik Rakyat China.</p>
+            <p><strong>Kalangan militer konservatif</strong> menolak pelantikan Goulart dengan alasan "ideologi komunis". Kelompok sayap kanan mengklaim bahwa Goulart akan mengubah Brazil menjadi negara satelit Uni Soviet. Akibatnya, terjadi negosiasi alot yang menghasilkan kompromi bersejarah.</p>
+
+            <div class="quote-box">
+                <p>"Kami tidak akan menerima seorang komunis memimpin negara ini. Lebih baik Brazil terpecah daripada jatuh ke tangan Moskow."</p>
+                <div class="quote-source">— Jenderal Mourão Filho, 1961</div>
+            </div>
+
+            <p>Kompromi yang dicapai adalah penerapan <strong>Sistem Parlementer</strong> yang membatasi kekuasaan presiden. Tancredo Neves diangkat sebagai Perdana Menteri. Namun, sistem ini hanya bertahan hingga tahun 1963 ketika referendum mengembalikan kekuasaan penuh kepada Goulart.</p>
+
+            <!-- TOMBOL DOKUMEN RAHASIA -->
+            <button class="btn-classified" onclick="revealDetail('detail-politik')">BUKA DOKUMEN RAHASIA</button>
+            
+            <div id="detail-politik" class="classified-detail hidden">
+                <h4>TELEGRAM KEDUTAAN AS, RIO DE JANEIRO (1961)</h4>
+                <p>"Situasi Brazil sangat tidak stabil. Goulart adalah seorang populis yang berbahaya. Kami merekomendasikan pendekatan hati-hati dan mulai membangun kontak dengan faksi militer yang oposan."</p>
+                <p style="margin-top: 10px; color: #8b0000;">— Dokumen deklasifikasi CIA, 1995</p>
+            </div>
+        </div>
+
+        <!-- FOTO GRID 2 KOLOM -->
+        <div class="photo-grid-2">
+            <div class="photo-card">
+                <img src="assets/images/Reforma 2.jpg" alt="Reforma Agraria">
+                <p>Rencana Reforma Agraria Goulart, 1963</p>
+            </div>
+            <div class="photo-card">
+                <img src="assets/images/Marcha Familia.jpg" alt="Demonstrasi">
+                <p>Demonstrasi "Marcha da Família com Deus pela Liberdade"</p>
+            </div>
+        </div>
+
+        <!-- KONTEN 2: FAKTOR EKONOMI -->
+        <div class="content-card">
+            <h3>FAKTOR EKONOMI</h3>
+            <p>Kondisi ekonomi Brazil pada awal 1960-an berada dalam situasi kritis. Inflasi melonjak drastis dan pertumbuhan ekonomi melambat.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+                <span class="stat-box">INFLASI 1963: 80%</span>
+                <span class="stat-box">UTANG LUAR NEGERI: $3 MILIAR</span>
+                <span class="stat-box">DEFISIT APBN: 4.2%</span>
+            </div>
+
+            <p>Goulart mencoba kebijakan kontroversial seperti <strong>nasionalisasi kilang minyak swasta</strong> dan pembatasan pengiriman laba perusahaan asing. Kebijakan ini memicu kemarahan Amerika Serikat dan perusahaan multinasional yang beroperasi di Brazil.</p>
+
+            <p>Pada bulan Maret 1964, Goulart menandatangani dekrit yang membatalkan konsesi tanah kepada perusahaan asing dan mengumumkan nasionalisasi semua kilang minyak swasta. Ini menjadi "pemicu terakhir" bagi oposisi militer dan sipil.</p>
+
+            <!-- TOMBOL KEDUA -->
+            <button class="btn-classified" onclick="revealDetail('detail-ekonomi')">BUKA LAPORAN EKONOMI</button>
+            
+            <div id="detail-ekonomi" class="classified-detail hidden">
+                <h4>MEMO DEPARTEMEN LUAR NEGERI AS (1964)</h4>
+                <ul>
+                    <li>Kebijakan nasionalisasi Goulart mengancam kepentingan perusahaan AS senilai $1.3 miliar.</li>
+                    <li>Brazil adalah penerima investasi terbesar AS di Amerika Selatan.</li>
+                    <li>Rekomendasi: Dukungan taktis untuk elemen militer yang pro-Barat.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- KONTEN 3: PERAN CIA DAN DOKUMEN RAHASIA -->
+        <div class="content-card">
+            <h3>PERAN INTELIJEN AS</h3>
+            <p>Berdasarkan dokumen yang dideklasifikasi pada tahun 1999-an, CIA secara aktif memantau situasi Brazil dan menjalin kontak dengan oposisi militer sejak tahun 1962.</p>
+
+            <div class="photo-card" style="margin: 20px 0;">
+                <img src="assets/images/dok cia.jpg" alt="Dokumen CIA">
+                <p style="margin-top: 5px;">Dokumen CIA yang dideklasifikasi, 1999</p>
+            </div>
+
+            <p>Pada bulan September 1963, CIA mengirimkan laporan berjudul <em>"Brazil: Prospek Pemberontakan Komunis"</em> yang menyatakan bahwa Goulart tidak mampu mengendalikan elemen kiri dan bahwa militer kemungkinan akan melakukan intervensi dalam waktu 12 bulan.</p>
+
+            <button class="btn-classified" onclick="revealDetail('detail-cia')">BUKA KUTIPAN DOKUMEN</button>
+            
+            <div id="detail-cia" class="classified-detail hidden">
+                <h4>ESTIMASI INTELIJEN NASIONAL NO. 93-63</h4>
+                <p>"...Jika Goulart terus mendorong reformasi radikal, militer Brazil kemungkinan besar akan melakukan kudeta. Dalam skenario tersebut, AS harus siap memberikan dukungan tidak langsung untuk memastikan pemerintahan baru yang pro-Barat."</p>
+                <p style="margin-top: 10px; text-align: right;">— CIA, 27 September 1963</p>
+            </div>
+        </div>
+
+        <div style="max-width: 900px; margin: 20px auto; font-family: monospace; color: #ccc; line-height: 1.6;">
+    
+            <h3 style="color: #8b0000; letter-spacing: 1px; margin-bottom: 15px; font-size: 1.1rem;">
+                KRONOLOGI MENUJU KUDETA MILITER:
+            </h3>
+    
+            <ul style="list-style-type: square; padding-left: 20px; margin: 0;">
+                <li style="margin-bottom: 12px; text-align: justify;">
+                    <strong style="color: #a00808;">1961:</strong> Pengunduran diri Quadros. Krisis suksesi. Sistem Parlementer diterapkan.
+                 </li>
+                <li style="margin-bottom: 12px; text-align: justify;">
+                    <strong style="color: #a00808;">1962:</strong> CIA memulai kontak dengan oposisi militer. Inflasi mencapai 50%.
+                </li>
+                <li style="margin-bottom: 12px; text-align: justify;">
+                    <strong style="color: #a00808;">1963:</strong> Referendum mengembalikan kekuasaan Goulart. Kunjungan Goulart ke RRT dan Uni Soviet.
+                </li>
+                <li style="margin-bottom: 12px; text-align: justify;">
+                    <strong style="color: #a00808;">Mar 1964:</strong> Dekrit nasionalisasi kilang minyak. "Marcha da Família" digelar di Sao Paulo.
+                </li>
+                <li style="margin-bottom: 12px; text-align: justify;">
+                    <strong style="color: #a00808;">31 Mar 1964:</strong> Kudeta dimulai.
+                </li>
+            </ul>
+    
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-note">
+            <p># DOKUMEN RAHASIA - DEKLASIFIKASI SEBAGIAN 2024 // LUCENT EYES ONLY #</p>
+        </div>
+    </div>
+
+    <!-- MODAL PERINGATAN -->
+    <div id="secretModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>PERINGATAN</h2>
+            <p>Akses terhadap dokumen rahasia ini dipantau oleh Badan Intelijen Negara. Seluruh aktivitas Anda dicatat.</p>
+            <button onclick="closeModal()">SETUJU</button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk membuka detail dokumen
+        function revealDetail(detailId) {
+            const detailElement = document.getElementById(detailId);
+            const button = event.target;
+            
+            if (detailElement) {
+                detailElement.classList.toggle('hidden');
+                
+                if (detailElement.classList.contains('hidden')) {
+                    button.textContent = 'BUKA DOKUMEN RAHASIA';
+                } else {
+                    button.textContent = 'TUTUP DOKUMEN';
+                    
+                    // Tampilkan modal peringatan pertama kali
+                    if (!localStorage.getItem('warningShownLB')) {
+                        document.getElementById('secretModal').style.display = 'block';
+                        localStorage.setItem('warningShownLB', 'true');
+                    }
+                }
+            }
+        }
+
+        // Fungsi modal
+        function closeModal() {
+            document.getElementById('secretModal').style.display = 'none';
+        }
+
+        // Close modal jika klik di luar
+        window.onclick = function(event) {
+            const modal = document.getElementById('secretModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Set active di navbar berdasarkan halaman
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cek apakah sudah pernah lihat warning
+            if (localStorage.getItem('warningShownLB')) {
+                // Tidak perlu lakukan apa-apa
+            }
+        });
+    </script>
+</body>
+</html>

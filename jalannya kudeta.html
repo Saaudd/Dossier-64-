@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JALANNYA KUDETA - DOSSIER 64: OPERASI BROTHER SAM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            border-bottom: 2px solid #8b0000;
+            background-color: #0a0a0a;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .dossier {
+            font-size: 1.5rem;
+            color: #8b0000;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .year {
+            font-size: 2rem;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 10px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* PAGE TITLE */
+        .page-title {
+            font-size: 2.2rem;
+            color: #8b0000;
+            margin-bottom: 10px;
+            border-left: 5px solid #8b0000;
+            padding-left: 15px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+            font-style: italic;
+            padding-left: 20px;
+        }
+
+        /* WARNING BANNER */
+        .warning-banner {
+            background-color: #2a0000;
+            border: 2px solid #8b0000;
+            color: #ff6a6a;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* TIMELINE SPECIAL */
+        .timeline-container {
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 120px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #8b0000;
+            opacity: 0.3;
+        }
+
+        .timeline-hour {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-time {
+            min-width: 120px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8b0000;
+            font-family: 'Courier New', monospace;
+            text-align: right;
+            padding-right: 25px;
+            position: relative;
+        }
+
+        .timeline-time::after {
+            content: '►';
+            position: absolute;
+            right: 5px;
+            color: #8b0000;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-left: 5px solid #8b0000;
+            border-bottom: 1px solid #444;
+        }
+
+        .timeline-content h3 {
+            color: #8b0000;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .timeline-content p {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content .source {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            border-top: 1px dotted #444;
+            padding-top: 8px;
+        }
+
+        /* PHOTO SECTION */
+        .photo-section {
+            margin: 30px 0;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border: 1px solid #444;
+        }
+
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .photo-card {
+            background-color: #1a1a1a;
+            padding: 10px;
+            border: 1px solid #444;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #8b0000;
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .featured-photo {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .featured-photo img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border: 3px solid #8b0000;
+        }
+
+        /* MAP SIMULATION */
+        .movement-map {
+            background-color: #0a0a0a;
+            padding: 20px;
+            border: 2px dashed #8b0000;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .map-title {
+            color: #8b0000;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .route {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .city {
+            background-color: #2a2a2a;
+            padding: 10px 20px;
+            border: 1px solid #8b0000;
+            color: #e0e0e0;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .arrow {
+            color: #8b0000;
+            font-size: 1.5rem;
+        }
+
+        /* CONTENT CARD */
+        .content-card {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-left: 5px solid #8b0000;
+            border-bottom: 1px solid #444;
+            margin: 25px 0;
+        }
+
+        .content-card h3 {
+            color: #8b0000;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 1px dotted #444;
+            padding-bottom: 8px;
+        }
+
+        .content-card h4 {
+            color: #8b0000;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* QUOTE BOX */
+        .quote-box {
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+        .quote-box p {
+            color: #8b0000;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        .quote-source {
+            text-align: right;
+            color: #888;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* BUTTON */
+        .btn-classified {
+            background-color: transparent;
+            color: #8b0000;
+            border: 2px solid #8b0000;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin: 20px 0 10px 0;
+        }
+
+        .btn-classified:hover {
+            background-color: #8b0000;
+            color: #fff;
+        }
+
+        /* CLASSIFIED DETAIL */
+        .classified-detail {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+        }
+
+        .classified-detail h4 {
+            color: #8b0000;
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* TABLE */
+        .force-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .force-table th {
+            background-color: #8b0000;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .force-table td {
+            padding: 10px;
+            border: 1px solid #444;
+            color: #ccc;
+        }
+
+        .force-table tr:nth-child(even) {
+            background-color: #1f1f1f;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            margin: 15% auto;
+            padding: 30px;
+            border: 3px solid #8b0000;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            color: #8b0000;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .modal-content button {
+            background-color: #8b0000;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .close {
+            color: #8b0000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        .footer-note {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .timeline-container::before {
+                left: 80px;
+            }
+            
+            .timeline-time {
+                min-width: 80px;
+                font-size: 1rem;
+            }
+            
+            .photo-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .route {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="dossier"># DOSSIER</span>
+                <span class="year">64</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">BERANDA</a></li>
+                <li><a href="latar belakang.html">LATAR BELAKANG</a></li>
+                <li><a href="jalannya kudeta.html" class="active">JALANNYA KUDETA</a></li>
+                <li><a href="pasca kudeta.html">PASCA KUDETA</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- HEADER -->
+        <h1 class="page-title">JALANNYA KUDETA</h1>
+        <div class="sub-title">KRONOLOGI OPERASI MILITER (31 MARET - 2 APRIL 1964)</div>
+
+        <!-- WARNING BANNER -->
+        <div class="warning-banner">
+            DOKUMEN OPERASI RAHASIA KRONOLOGI TERSEDIA DALAM ARSIP CIA (DEKLASIFIKASI 1995)
+        </div>
+
+        <!-- FOTO UTAMA -->
+        <div class="featured-photo">
+            <img src="assets/images/Brasilia.jpg" alt="Tank di Brasilia">
+            <p class="photo-caption">Tank M41 dan jip Tentara Brazil di Esplanada dos Ministérios, dekat Istana Kongres Nasional, Brasília - 1 April 1964 [sumber: Arquivo Nacional]</p>
+        </div>
+
+        <!-- RINGKASAN EKSEKUTIF -->
+        <div class="content-card">
+            <h3>RINGKASAN EKSEKUTIF</h3>
+            <p>Kudeta 1964 dimulai pada <strong>31 Maret 1964 dini hari</strong> ketika Jenderal Olímpio Mourão Filho, Komandan Wilayah Militer ke-4 yang bermarkas di Juiz de Fora, Minas Gerais, memerintahkan pasukannya untuk bergerak menuju Rio de Janeiro. Presiden João Goulart awalnya memiliki keunggulan taktis, namun membiarkan kesempatan itu berlalu karena menghindari perang saudara. Dalam waktu 48 jam, terjadi defeksi massal yang membuat posisi militer Goulart runtuh. Ia melakukan perjalanan berturut-turut dari Rio de Janeiro ke Brasília, kemudian Porto Alegre, dan akhirnya ke pengasingan di Uruguay. Kongres mendeklarasikan kursi kepresidenan kosong pada 2 April meskipun Goulart masih berada di wilayah Brasil. [citation:1][citation:2]</p>
+        </div>
+
+        <!-- TIMELINE DETAIL -->
+        <h2 style="color: #8b0000; margin: 40px 0 20px 0; border-bottom: 2px solid #8b0000; padding-bottom: 10px;">KRONOLOGI PER JAM</h2>
+
+        <div class="timeline-container">
+            <!-- 31 MARET 1964 -->
+            <div class="timeline-hour">
+                <div class="timeline-time">31 MAR 1964<br>01:00 - 04:00</div>
+                <div class="timeline-content">
+                    <h3>PASUKAN BERGERAK DARI JUIZ DE FORA</h3>
+                    <p>Jenderal Olímpio Mourão Filho, tanpa koordinasi penuh dengan konspirator utama lainnya, memerintahkan Brigade Infanteri ke-4 yang dikenal sebagai "Brigade Tiradentes" (sekitar 3.000 personel) untuk mulai bergerak menuju Rio de Janeiro melalui jalan raya. Mourão kemudian mengklaim bahwa ia bertindak berdasarkan "hak untuk memberontak melawan pemerintahan yang korup dan komunis." [citation:1][citation:4]</p>
+                    <p>Pergerakan ini mengejutkan petinggi konspirator lainnya, termasuk Jenderal Amaury Kruel (Komandan Angkatan Darat ke-2 di São Paulo) dan Jenderal Castelo Branco. Kruel menyebut tindakan Mourão sebagai "<em>quartelada</em>" (petualangan militer dari barak) dan awalnya ragu untuk bergabung. [citation:4]</p>
+                    <div class="source">Sumber: Wikipedia, 1964 Brazilian coup d'état [citation:1]</div>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">31 MAR 1964<br>07:00 - 10:00</div>
+                <div class="timeline-content">
+                    <h3>REAKSI AWAL DI RIO DE JANEIRO</h3>
+                    <p>Berita pergerakan pasukan mencapai Rio de Janeiro. Jenderal Argemiro Assis Brasil, ajudan militer Goulart, merasa yakin dapat mengatasi pemberontakan. Sementara itu, Castelo Branco dua kali mencoba menghentikan laju Mourão karena merasa waktunya belum tepat, namun gagal. Pasukan loyalis mulai bersiap, namun komando masih terpecah. [citation:4]</p>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">31 MAR 1964<br>12:00 - 15:00</div>
+                <div class="timeline-content">
+                    <h3>GUBERNUR SAO PAULO MENYATAKAN DUKUNGAN</h3>
+                    <p>Gubernur São Paulo, Adhemar de Barros, secara resmi menyatakan dukungannya kepada gerakan militer. Ini menjadi sinyal penting karena São Paulo adalah negara bagian terkaya dan terpenting secara ekonomi. Jenderal Kruel mulai melunakkan sikapnya. [citation:1]</p>
+                    <p>Sementara itu, mantan Presiden Juscelino Kubitschek mencoba menawarkan mediasi dengan mengusulkan reshuffle kabinet untuk menenangkan militer, namun tawaran ini ditolak. [citation:6]</p>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">31 MAR 1964<br>16:00 - 19:00</div>
+                <div class="timeline-content">
+                    <h3>KAWALAN LAUT: USS FORRESTAL BERLAYAR</h3>
+                    <p>Di Atlantik Selatan, kapal induk USS Forrestal dan tiga kapal perusak Amerika Serikat dikerahkan ke lepas pantai Brazil sebagai bagian dari <strong>Operation Brother Sam</strong>. Secara resmi disebut sebagai "latihan militer rutin", armada ini membawa 600 ton amunisi dan bahan bakar yang siap dikirim jika pasukan pemberontak membutuhkannya. [citation:1]</p>
+                    <!-- FOTO USS FORRESTAL -->
+                    <div style="margin: 15px 0;">
+                        <img src="assets/images/Forrestal 1964.jpg" alt="USS Forrestal" style="width: 100%; border: 2px solid #8b0000;">
+                    </div>
+                    <div class="source">Sumber: Operation Brother Sam, dokumen deklasifikasi [citation:4]</div>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">31 MAR 1964<br>20:00 - 22:00</div>
+                <div class="timeline-content">
+                    <h3>TELEPON KRUELL-GOULART</h3>
+                    <p>Pada sekitar pukul 22:00, Jenderal Amaury Kruel menelepon Presiden Goulart. Kruel mengajukan dua tuntutan ultimatum:</p>
+                    <ul style="color: #ccc; margin-left: 20px;">
+                        <li>Memecat Menteri Kehakiman dan Kepala Staf Kabinet Sipil (yang dianggap komunis)</li>
+                        <li>Melarang organisasi buruh Comando Geral dos Trabalhadores (CGT)</li>
+                    </ul>
+                    <p>Goulart menjawab: <span style="color: #ff6a6a;">"Jenderal, saya tidak meninggalkan teman-teman saya. Saya lebih baik bertahan dengan pendukung saya. Anda harus mengikuti keyakinan Anda. Letakkan pasukan Anda di jalan dan khianati saya, secara terbuka."</span> [citation:4]</p>
+                    <p>Kruel menelepon dua kali lagi setelahnya, tetap meminta hal yang sama, namun Goulart konsisten menolak.</p>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">31 MAR 1964<br>23:00</div>
+                <div class="timeline-content">
+                    <h3>KEPUTUSAN KRUEL</h3>
+                    <p>Setelah panggilan ketiga, Kruel memutuskan untuk bergabung dengan pemberontak. Pasukan Angkatan Darat ke-2 mulai bergerak menuju Vale do Paraíba, perbatasan antara São Paulo dan Rio de Janeiro. Ini adalah titik balik kritis. [citation:4]</p>
+                    <p>Sementara itu, Brigade Tiradentes dari Juiz de Fora telah mencapai perbatasan antara Minas Gerais dan Rio de Janeiro. Mourão Filho menyiarkan proklamasi anti-pemerintah yang disiarkan ke seluruh negeri.</p>
+                </div>
+            </div>
+
+            <!-- 1 APRIL 1964 -->
+            <div class="timeline-hour">
+                <div class="timeline-time">1 APR 1964<br>00:00 - 03:00</div>
+                <div class="timeline-content">
+                    <h3>MALAM KEPUTUSAN</h3>
+                    <p>Di Rio de Janeiro, situasi memburuk dengan cepat. Jenderal Kruel secara terbuka menyatakan dukungannya kepada pemberontak. Pasukan di negara bagian Paraná dan Santa Catarina mulai menyatakan bergabung. [citation:1]</p>
+                    <p>Pada dini hari, hanya Angkatan Darat ke-1 (di bawah Jenderal Âncora) yang masih loyal kepada Goulart. Namun moral pasukan mulai goyah karena berita defeksi massal.</p>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">1 APR 1964<br>12:45</div>
+                <div class="timeline-content">
+                    <h3>GOULART MENINGGALKAN RIO</h3>
+                    <p>Presiden Goulart meninggalkan Rio de Janeiro menuju Brasília dengan pesawat, dengan harapan dapat menggalang dukungan dari Kongres dan mempertahankan pemerintahan. Saat ia terbang, Angkatan Darat ke-2 Kruel terus maju menuju Rio. [citation:4]</p>
+                    <p>Pada saat yang sama, Jenderal Costa e Silva, salah satu pemimpin kudeta, menghubungi komandan unit yang masih ragu-ragu dan meyakinkan mereka untuk bergabung.</p>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">1 APR 1964<br>15:00</div>
+                <div class="timeline-content">
+                    <h3>GOULART DI BRASÍLIA</h3>
+                    <p>Goulart tiba di Brasília dan mengadakan pertemuan darurat. Namun, situasi sudah tidak dapat diselamatkan. Ia mengetahui bahwa hampir seluruh garnisun militer telah bergabung dengan pemberontak. Kongres dalam kekacauan. [citation:6]</p>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">1 APR 1964<br>17:00</div>
+                <div class="timeline-content">
+                    <h3>GOULART TERBANG KE PORTO ALEGRE</h3>
+                    <p>Dari Brasília, Goulart terbang ke Porto Alegre, ibu kota Rio Grande do Sul, negara bagian asalnya. Ia berharap dapat mengandalkan dukungan Gubernur Leonel Brizola (iparnya) dan Jenderal Ladário Pereira Teles, komandan Angkatan Darat ke-3. [citation:1]</p>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">1 APR 1964<br>Malam</div>
+                <div class="timeline-content">
+                    <h3>KONTROL PEMBERONTAK MELUAS</h3>
+                    <p>Pada akhir 1 April, pemberontak telah menguasai sebagian besar Brasil. Hanya Rio Grande do Sul yang masih belum sepenuhnya berada di bawah kendali mereka. Jenderal Costa e Silva mengumumkan bahwa "revolusi" telah menang. [citation:2]</p>
+                </div>
+            </div>
+
+            <!-- 2 APRIL 1964 -->
+            <div class="timeline-hour">
+                <div class="timeline-time">2 APR 1964<br>00:30 - 03:00</div>
+                <div class="timeline-content">
+                    <h3>SIDANG TENGAH MALAM KONGRES</h3>
+                    <p>Di Brasília, Presiden Senat Auro de Moura Andrade memimpin sidang darurat Kongres pada dini hari. Dengan cepat, ia mendeklarasikan kursi kepresidenan <strong>kosong</strong> (<em>vago</em>), dengan alasan bahwa Presiden Goulart telah "melarikan diri dari negara" meskipun Goulart saat itu masih berada di Porto Alegre, wilayah Brasil. [citation:1][citation:5]</p>
+                    <p>Deklarasi ini kontroversial secara konstitusional karena Goulart belum mengundurkan diri dan masih berada di dalam negeri. Presiden Kamar Deputi, Ranieri Mazzilli, secara otomatis ditunjuk sebagai presiden sementara. [citation:5][citation:8]</p>
+                    <div class="quote-box" style="margin-top: 15px;">
+                        <p>"Saya bersama Jango malam itu di Porto Alegre. Ia tidak melarikan diri ke luar negeri. Kongres berbohong."</p>
+                        <div class="quote-source">— Senador Pedro Simon, dalam sesi devolusi simbolis mandat Jango, 2013 [citation:5]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-hour">
+                <div class="timeline-time">2 APR 1964<br>08:00 - 12:00</div>
+                <div class="timeline-content">
+                    <h3>RIO GRANDE DO SUL JATUH</h3>
+                    <p>Di Porto Alegre, Jenderal Ladário memberi tahu Goulart bahwa ia tidak dapat menjamin keselamatan presiden. Tekanan dari pemberontak dan ancaman pengeboman memaksanya menyerah. Goulart meninggalkan Porto Alegre menuju ke pedalaman, ke peternakannya di São Borja. [citation:1]</p>
+                </div>
+            </div>
+
+            <!-- 4 APRIL 1964 -->
+            <div class="timeline-hour">
+                <div class="timeline-time">4 APR 1964</div>
+                <div class="timeline-content">
+                    <h3>GOULART MENUJU PENGASINGAN</h3>
+                    <p>Dari São Borja, Goulart menyeberang ke Uruguay, memulai pengasingan yang akan berlangsung hingga kematiannya pada 1976. Ia tidak pernah kembali ke Brasil. [citation:1]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PETA PERGERAKAN -->
+        <div class="movement-map">
+            <div class="map-title">RUTE PERGERAKAN PRESIDEN GOULART (31 MARET - 4 APRIL 1964)</div>
+            <div class="route">
+                <span class="city">RIO DE JANEIRO</span>
+                <span class="arrow">→</span>
+                <span class="city">BRASÍLIA</span>
+                <span class="arrow">→</span>
+                <span class="city">PORTO ALEGRE</span>
+                <span class="arrow">→</span>
+                <span class="city">SÃO BORJA</span>
+                <span class="arrow">→</span>
+                <span class="city">URUGUAY</span>
+            </div>
+            <p style="color: #888; text-align: center; margin-top: 20px; font-size: 0.9rem;">Goulart melakukan perjalanan sejauh lebih dari 3.000 km dalam 4 hari, mencoba menghindari perang saudara</p>
+        </div>
+
+        <!-- ANALISIS KEKUATAN MILITER -->
+        <div class="content-card">
+            <h3>ANALISIS KEKUATAN MILITER SAAT KRISIS</h3>
+            <table class="force-table">
+                <tr>
+                    <th>KOMANDO</th>
+                    <th>MARKAS</th>
+                    <th>KOMANDAN</th>
+                    <th>POSISI</th>
+                </tr>
+                <tr>
+                    <td>Exército I (Angkatan Darat ke-1)</td>
+                    <td>Rio de Janeiro</td>
+                    <td>Jend. Armando de Moraes Âncora</td>
+                    <td>LOYAL (awal), kemudian terisolasi</td>
+                </tr>
+                <tr>
+                    <td>Exército II (Angkatan Darat ke-2)</td>
+                    <td>São Paulo</td>
+                    <td>Jend. Amaury Kruel</td>
+                    <td>BERPALING (31 Maret malam)</td>
+                </tr>
+                <tr>
+                    <td>Exército III (Angkatan Darat ke-3)</td>
+                    <td>Porto Alegre</td>
+                    <td>Jend. Ladário Pereira Teles</td>
+                    <td>LOYAL (awal), menyerah 2 April</td>
+                </tr>
+                <tr>
+                    <td>IV Exército (Angkatan Darat ke-4)</td>
+                    <td>Recife</td>
+                    <td>Jend. Justino Alves Bastos</td>
+                    <td>PEMBERONTAK</td>
+                </tr>
+                <tr>
+                    <td>4ª Região Militar</td>
+                    <td>Juiz de Fora</td>
+                    <td>Jend. Olímpio Mourão Filho</td>
+                    <td>PEMBERONTAK (pemicu)</td>
+                </tr>
+            </table>
+            <p class="source" style="margin-top: 15px;">Sumber: Brazilian Military History Archive [citation:1][citation:6]</p>
+        </div>
+
+        <!-- FOTO GRID 2 KOLOM -->
+        <div class="photo-grid-2">
+            <div class="photo-card">
+                <img src="assets/images/Murao Filho.jpg" alt="Jenderal Mourão Filho">
+                <p class="photo-caption">Jenderal Olímpio Mourão Filho (kiri), komandan yang memulai pergerakan pasukan dari Juiz de Fora</p>
+            </div>
+            <div class="photo-card">
+                <img src="assets/images/Pesawat Jango.png" alt="Joao Goulart">
+                <p class="photo-caption">Pesawat Presiden João Goulart lepas landas menuju Porto Alegre, 1 April 1964</p>
+            </div>
+        </div>
+
+        <!-- DOKUMEN RAHASIA OPERASI BROTHER SAM -->
+        <div class="content-card">
+            <h3>OPERASI BROTHER SAM: INTERVENSI AS</h3>
+            <p>Operasi Brother Sam adalah nama sandi untuk dukungan logistik dan angkatan laut Amerika Serikat kepada pasukan pemberontak. Armada yang dikerahkan terdiri dari: [citation:1][citation:4]</p>
+            <ul style="color: #ccc; margin-left: 20px; margin-bottom: 20px;">
+                <li>Kapal induk USS Forrestal (CVA-59) - membawa 40 pesawat serang</li>
+                <li>Kapal perusak USS Walker (DD-517)</li>
+                <li>Kapal tanker USS Betelgeuse (AK-260)</li>
+                <li>Kapal angkut amunisi USS Diamond (AK-153)</li>
+            </ul>
+            <p>Armada ini berlayar menuju perairan Brazil pada 31 Maret 1964 dan tetap siaga hingga 3 April, ketika kudeta sudah berhasil. Selain dukungan laut, CIA juga menyediakan dana dan pelatihan untuk elemen anti-Goulart melalui stasiun CIA di Rio de Janeiro. [citation:1]</p>
+            
+            <button class="btn-classified" onclick="revealDetail('detail-brother-sam')">BUKA DOKUMEN CIA</button>
+            
+            <div id="detail-brother-sam" class="classified-detail hidden">
+                <h4>TELEGRAM CIA STATION RIO KE LANGLEY</h4>
+                <p><em>"Situasi berkembang menguntungkan. 'Kastil' (nama sandi untuk Jenderal Castelo Branco) menguasai sebagian besar unit kunci. Dukungan publik terhadap Goulart runtuh. Brother Sam dalam posisi siaga. Rekomendasi: Lanjutkan dukungan taktis."</em></p>
+                <p style="margin-top: 10px; text-align: right;">— 1 April 1964, 14:30 GMT</p>
+                <p style="color: #888; margin-top: 10px;">(Dokumen deklasifikasi berdasarkan FOIA, 1995)</p>
+            </div>
+        </div>
+
+        <!-- PERAN KONSPIRATOR SIPIL -->
+        <div class="content-card">
+            <h3>PERAN KONSPIRATOR SIPIL</h3>
+            <p>Kudeta ini bukan hanya militer; tiga gubernur negara bagian memainkan peran kunci: [citation:3]</p>
+            <ul style="color: #ccc; margin-left: 20px;">
+                <li><strong>Magalhães Pinto</strong> (Minas Gerais) - menyediakan basis politik dan logistik untuk pasukan Mourão Filho</li>
+                <li><strong>Adhemar de Barros</strong> (São Paulo) - menggerakkan dukungan politik dan memastikan Jenderal Kruel bergabung</li>
+                <li><strong>Carlos Lacerda</strong> (Guanabara/Rio de Janeiro) - kampanye anti-Goulart di media dan menyediakan dukungan politik</li>
+            </ul>
+            <p>Para konspirator sipil ini berharap kudeta hanya bersifat sementara ("moderator") dan akan segera kembali ke pemerintahan sipil dengan salah satu dari mereka menjadi presiden dalam pemilu 1965. Namun harapan ini tidak terwujud. [citation:3]</p>
+        </div>
+
+        <!-- INSIDEN PENTING: PEMBERONTAKAN PELAUT -->
+        <div class="content-card">
+            <h3>INSIDEN PEMBERONTAKAN PELAUT (25 MARET 1964)</h3>
+            <p>Enam hari sebelum kudeta, sekitar 2.000 pelaut dan marinir bermarkas di Rio de Janeiro mengadakan pertemuan menuntut perbaikan kondisi hidup dan menyatakan dukungan kepada reformasi Goulart. Menteri Angkatan Laut, Laksamana Sílvio Mota, memerintahkan penangkapan para pemimpin pertemuan. Namun, detasemen marinir yang dipimpin oleh Laksamana Cândido Aragão justru bergabung dengan para pelaut. [citation:4]</p>
+            <p>Goulart campur tangan, memecat Mota dan memberikan amnesti kepada para pelaut yang ditahan. Tindakan ini memicu kemarahan besar di kalangan perwira angkatan laut dan mempercepat konsolidasi oposisi militer. [citation:4]</p>
+        </div>
+
+        <!-- PIDATO TERAKHIR GOULART -->
+        <div class="content-card">
+            <h3>PIDATO TERAKHIR: 30 MARET 1964</h3>
+            <p>Sehari sebelum kudeta, Goulart menghadiri pertemuan sersan di Rio de Janeiro (Automóvel Club). Dalam pidatonya yang emosional, ia mengecam oposisi dan menegaskan komitmennya pada reformasi dasar. Ia juga meminta dukungan dari personel militer pangkat rendah. [citation:4]</p>
+            <p>Pidato ini dilihat oleh para perwira sebagai pelanggaran rantai komando dan hasutan terhadap disiplin militer, menjadi salah satu pemicu langsung kudeta keesokan harinya. [citation:4]</p>
+        </div>
+
+        <!-- DEKLARASI KONGRES DAN KOMANDO SUPREMO -->
+        <div class="content-card">
+            <h3>DEKLARASI VACANCY DAN PEMBENTUKAN JUNTA</h3>
+            <p>Setelah Kongres mendeklarasikan kursi presiden kosong pada 2 April dini hari, kekuasaan eksekutif secara formal dipegang oleh Presiden Kamar Deputi, Ranieri Mazzilli. Namun kekuasaan sebenarnya berada di tangan <strong>Komando Tertinggi Revolusi</strong> (<em>Comando Supremo da Revolução</em>), sebuah junta militer yang terdiri dari: [citation:8]</p>
+            <ul style="color: #ccc; margin-left: 20px; margin-bottom: 20px;">
+                <li>Jenderal Artur da Costa e Silva (mewakili Angkatan Darat)</li>
+                <li>Laksamana Augusto Rademaker Grünewald (mewakili Angkatan Laut)</li>
+                <li>Brigadir Francisco de Assis Correia de Melo (mewakili Angkatan Udara)</li>
+            </ul>
+            <p>Pada 9 April, junta ini mengeluarkan <strong>Ato Institucional Nº 1 (AI-1)</strong>, yang memberikan legitimasi hukum untuk tindakan di luar konstitusi, termasuk wewenang untuk membekukan hak politik, mencabut mandat legislatif, dan memecat pegawai negeri. [citation:8]</p>
+        </div>
+        
+        <!-- KUTIPAN PENTING -->
+        <div class="quote-box">
+            <p>"Saya tidak ingin menjadi presiden yang dekoratif. Saya lebih baik bertahan dengan rakyat saya."</p>
+            <div class="quote-source">— João Goulart kepada Jenderal Amaury Kruel, 31 Maret 1964, pukul 22:00 [citation:4]</div>
+        </div>
+
+        <!-- STATISTIK KORBAN -->
+        <div class="content-card">
+            <h3>KORBAN JIWA</h3>
+            <p>Secara resmi, kudeta ini berlangsung dengan sedikit pertumpahan darah. Namun, tercatat <strong>7 warga sipil pro-pemerintah tewas</strong> dalam berbagai insiden selama dua hari kritis tersebut. Angka ini tidak termasuk korban dalam minggu-minggu setelahnya saat rezim baru mulai membersihkan lawan politik. [citation:1]</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-note">
+            <p># DOKUMEN RAHASIA - DEKLASIFIKASI SEBAGIAN 2024 // KRONOLOGI BERDASARKAN ARSIP CIA, ARSIP NASIONAL BRASIL, DAN KESAKSIAN SEJARAWAN #</p>
+            <p style="margin-top: 10px;">Sumber: Wikipedia [citation:1][citation:2], Taylor & Francis [citation:3], Operation Brother Sam archives [citation:4], Arquivo Nacional [citation:8]</p>
+        </div>
+    </div>
+
+    <!-- MODAL PERINGATAN -->
+    <div id="secretModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>PERINGATAN</h2>
+            <p>Dokumen ini berisi kronologi operasi militer rahasia. Akses dan distribusi tidak sah dapat dikenakan sanksi berdasarkan Undang-Undang Keamanan Nasional.</p>
+            <button onclick="closeModal()">SETUJU</button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk membuka detail dokumen
+        function revealDetail(detailId) {
+            const detailElement = document.getElementById(detailId);
+            const button = event.target;
+            
+            if (detailElement) {
+                detailElement.classList.toggle('hidden');
+                
+                if (detailElement.classList.contains('hidden')) {
+                    button.textContent = 'BUKA DOKUMEN CIA';
+                } else {
+                    button.textContent = 'TUTUP DOKUMEN';
+                    
+                    // Tampilkan modal peringatan pertama kali
+                    if (!localStorage.getItem('warningShownJalan')) {
+                        document.getElementById('secretModal').style.display = 'block';
+                        localStorage.setItem('warningShownJalan', 'true');
+                    }
+                }
+            }
+        }
+
+        // Fungsi modal
+        function closeModal() {
+            document.getElementById('secretModal').style.display = 'none';
+        }
+
+        // Close modal jika klik di luar
+        window.onclick = function(event) {
+            const modal = document.getElementById('secretModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

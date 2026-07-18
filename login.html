@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Arsip 1964</title>
+    
+    <!-- Ini bagian paling penting yang menghubungkan ke style.css kamu -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Elemen Loading Screen (Akan otomatis sembunyi karena class 'hidden') -->
+    <div id="loading-screen" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Membuka Dekripsi Dokumen...</p>
+    </div>
+
+    <!-- 2. Konten Utama Halaman Login Kamu -->
+    <div class="welcome-container">
+        <h2>ARSIP RAHASIA MILITER BRASIL 1964</h2>
+        <p>Klik tombol di bawah untuk mengakses berkas rahasia.</p>
+        
+        <!-- Pastikan tombol memiliki id="btn-masuk" -->
+        <button id="btn-masuk" class="btn-classified" style="padding: 10px 20px; cursor: pointer;">MASUK KE ARSIP</button>
+    </div>
+
+    <!-- 3. Logika JavaScript untuk menjalankan Loading -->
+    <script>
+        document.getElementById('btn-masuk').addEventListener('click', function() {
+            // Ambil elemen loading screen
+            const loadingScreen = document.getElementById('loading-screen');
+            
+            // Munculkan animasi loading dengan menghapus class 'hidden'
+            loadingScreen.classList.remove('hidden');
+            
+            // Tunggu 2.5 detik, lalu pindah ke halaman Beranda.html
+            setTimeout(function() {
+                window.location.href = "Beranda.html"; 
+            }, 2500); 
+        });
+    </script>
+</body>
+</html>

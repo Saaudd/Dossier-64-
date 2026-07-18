@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PASCA KUDETA - DOSSIER 64: REZIM MILITER BRAZIL 1964-1985</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                linear-gradient(rgba(139, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* NAVBAR - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .navbar {
+            border-bottom: 2px solid #8b0000;
+            background-color: #0a0a0a;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .dossier {
+            font-size: 1.5rem;
+            color: #8b0000;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .year {
+            font-size: 2rem;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 10px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        /* CONTAINER - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* PAGE TITLE - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .page-title {
+            font-size: 2.2rem;
+            color: #8b0000;
+            margin-bottom: 10px;
+            border-left: 5px solid #8b0000;
+            padding-left: 15px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+            font-style: italic;
+            padding-left: 20px;
+        }
+
+        /* WARNING BANNER - SAMA PERSIS DENGAN HALAMAN JALANNYA KUDETA */
+        .warning-banner {
+            background-color: #2a0000;
+            border: 2px solid #8b0000;
+            color: #ff6a6a;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* PHOTO SECTION - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .featured-photo {
+            width: 100%;
+            margin: 20px 0 30px 0;
+            background-color: #2a2a2a;
+            padding: 15px;
+            border: 1px solid #444;
+        }
+
+        .featured-photo img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border: 3px solid #8b0000;
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .photo-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .photo-card {
+            background-color: #2a2a2a;
+            padding: 10px;
+            border: 1px solid #444;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 2px solid #8b0000;
+        }
+
+        .photo-card p {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #bbb;
+            text-align: center;
+        }
+
+        /* CONTENT CARD - SAMA PERSIS DENGAN HALAMAN LATAR BELAKANG */
+        .content-card {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-left: 5px solid #8b0000;
+            border-bottom: 1px solid #444;
+            margin: 25px 0;
+        }
+
+        .content-card h3 {
+            color: #8b0000;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 1px dotted #444;
+            padding-bottom: 8px;
+        }
+
+        .content-card h4 {
+            color: #8b0000;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* TIMELINE COMPACT - SAMA PERSIS DENGAN HALAMAN JALANNYA KUDETA */
+        .timeline-compact {
+            margin: 30px 0;
+        }
+
+        .timeline-year {
+            display: flex;
+            margin-bottom: 20px;
+            background-color: #1f1f1f;
+            border-left: 5px solid #8b0000;
+        }
+
+        .year-box {
+            min-width: 100px;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .year-desc {
+            padding: 15px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* QUOTE BOX - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .quote-box {
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+        .quote-box p {
+            color: #8b0000;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        .quote-source {
+            text-align: right;
+            color: #888;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* STAT GRID - SAMA PERSIS DENGAN HALAMAN PASCA KUDETA (SEBELUMNYA) */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background-color: #1a1a1a;
+            border: 2px solid #8b0000;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: #8b0000;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-label {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* BUTTON - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .btn-classified {
+            background-color: transparent;
+            color: #8b0000;
+            border: 2px solid #8b0000;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin: 20px 0 10px 0;
+        }
+
+        .btn-classified:hover {
+            background-color: #8b0000;
+            color: #fff;
+        }
+
+        /* CLASSIFIED DETAIL - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .classified-detail {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+        }
+
+        .classified-detail h4 {
+            color: #8b0000;
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* TABLE - SAMA PERSIS (jika ada) */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th {
+            background-color: #8b0000;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 10px;
+            border: 1px solid #444;
+            color: #ccc;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #1f1f1f;
+        }
+
+        /* MODAL - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            margin: 15% auto;
+            padding: 30px;
+            border: 3px solid #8b0000;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            color: #8b0000;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .modal-content button {
+            background-color: #8b0000;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .close {
+            color: #8b0000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* FOOTER - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .footer-note {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE - SAMA PERSIS */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .photo-grid-2, .photo-grid-3, .stat-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-year {
+                flex-direction: column;
+            }
+            
+            .year-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR - SAMA PERSIS DENGAN HALAMAN LAIN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="dossier"># DOSSIER</span>
+                <span class="year">64</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">BERANDA</a></li>
+                <li><a href="latar belakang.html">LATAR BELAKANG</a></li>
+                <li><a href="jalannya kudeta.html">JALANNYA KUDETA</a></li>
+                <li><a href="pasca kudeta.html" class="active">PASCA KUDETA</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT - ISI SAMA PERSIS DENGAN VERSI SEBELUMNYA, HANYA STYLE YANG BERUBAH -->
+    <div class="container">
+        <!-- HEADER -->
+        <h1 class="page-title">PASCA KUDETA</h1>
+        <div class="sub-title">REZIM MILITER BRAZIL (1964-1985) - 21 TAHUN KEDIKTATORAN</div>
+
+        <!-- WARNING BANNER -->
+        <div class="warning-banner">
+            DOKUMEN INI MENGANDUNG INFORMASI SENSITIF MENGENAI PELANGGARAN HAM • DEKLASIFIKASI SEBAGIAN 2024
+        </div>
+
+        <!-- FOTO UTAMA: CASTELO BRANCO DAN JUNTA MILITER -->
+        <div class="featured-photo">
+            <img src="assets/images/Junta Militar.jpg" alt="Komando Tertinggi Revolusi">
+            <p class="photo-caption">Perwakilan dari 3 kecabangan, yakni Angkatan Darat, Angkatan Laut, dan Angkatan Udara. Mereka memegang kekuasaan eksekutif de facto pasca-kudeta [sumber: Arquivo Nacional]</p>
+        </div>
+
+        <!-- RINGKASAN EKSEKUTIF -->
+        <div class="content-card">
+            <h3>RINGKASAN EKSEKUTIF: DARI KUDETA MENUJU KEDIKTATORAN</h3>
+            <p>Kudeta 31 Maret 1964 tidak hanya menggulingkan Presiden João Goulart, tetapi juga mengawali periode 21 tahun pemerintahan militer yang menjadi rezim paling lama dan paling brutal dalam sejarah Brasil. Apa yang dimulai sebagai "intervensi sementara" dengan dukungan luas dari elite sipil, pers, dan kelas menengah, berubah menjadi kediktatoran yang semakin otoriter, terutama setelah dekrit AI-5 pada tahun 1968. Rezim ini bertanggung jawab atas ribuan penangkapan, penyiksaan, dan setidaknya 434 kematian atau penghilangan paksa yang dikonfirmasi.</p>
+        </div>
+
+        <!-- STATISTIK KORBAN -->
+        <h2 style="color: #8b0000; margin: 40px 0 20px 0; border-bottom: 2px solid #8b0000; padding-bottom: 10px;">STATISTIK KEJAHATAN REZIM</h2>
+        
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-number">434</div>
+                <div class="stat-label">Kematian/penghilangan paksa (dikonfirmasi Komisi Kebenaran)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">377</div>
+                <div class="stat-label">Pelaku kejahatan HAM yang diidentifikasi</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">1.487</div>
+                <div class="stat-label">Loyalis Militer dihukum (1964-1970)</div>
+            </div>
+        </div>
+
+        <!-- 9 APRIL 1964: AI-1 -->
+        <div class="content-card">
+            <h3>9 APRIL 1964: ATO INSTITUCIONAL Nº 1 (AI-1)</h3>
+            <p>Seminggu setelah kudeta, pada 9 April 1964, junta militer mengeluarkan <strong>Ato Institucional Nº 1 (AI-1)</strong>, yang menjadi fondasi hukum bagi institusionalisasi kediktatoran. Dibacakan oleh Jenderal Costa e Silva di hadapan para perwira dan jurnalis, AI-1 berisi 11 pasal yang memberikan "plenos poderes" (kekuasaan penuh) kepada rezim baru.</p>
+            
+            <h4>EMPAT KETENTUAN UTAMA AI-1:</h4>
+            <ul style="color: #ccc; margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>▸</strong> Presiden dan wakil presiden akan dipilih secara tidak langsung oleh Kongres (dilaksanakan 11 April 1964)</li>
+                <li><strong>▸</strong> Rezim diberi wewenang untuk mencabut mandat legislatif</li>
+                <li><strong>▸</strong> Rezim diberi wewenang untuk membekukan hak politik selama 10 tahun</li>
+                <li><strong>▸</strong> Rezim diberi wewenang untuk memberhentikan pegawai negeri yang dianggap mengancam keamanan nasional</li>
+            </ul>
+            
+            <p>Yang paling signifikan, AI-1 menyatakan dirinya sebagai "pouvoir constituant" (kekuasaan konstituen) yang berada di atas Konstitusi 1946. Seperti dinyatakan dalam dokumen itu sendiri: <span style="color: #ff6a6a;">"Revolusi yang menang, sebagai kekuasaan konstituen, mencari legitimasinya sendiri"</span>.</p>
+
+            <!-- FOTO PEMBACAAN AI-1 -->
+            <div style="margin: 20px 0;">
+                <img src="assets/images/AI - 1.jpg" alt="Pembacaan AI-1" style="width: 100%; border: 2px solid #8b0000;">
+            </div>
+
+            <button class="btn-classified" onclick="revealDetail('detail-ai1')">BUKA DAFTAR KORBAN AI-1</button>
+            
+            <div id="detail-ai1" class="classified-detail hidden">
+                <h4>KORBAN AI-1 (DAFTAR PERTAMA, 10 APRIL 1964)</h4>
+                <ul>
+                    <li><strong>Ex-Presidentes:</strong> João Goulart, Jânio Quadros</li>
+                    <li><strong>Gubernur:</strong> Miguel Arraes (Pernambuco), Seixas Dória (Sergipe)</li>
+                    <li><strong>Deputi Federal:</strong> Leonel Brizola, Francisco Julião (pemimpin Liga Petani), 40 deputados federal lainnya</li>
+                    <li><strong>Pemimpin Komunis:</strong> Luís Carlos Prestes</li>
+                    <li><strong>Militer:</strong> 6 perwira tinggi yang mendukung Goulart</li>
+                    <li><strong>Intelektual:</strong> Celso Furtado (ekonom terkenal), Darcy Ribeiro (antropolog, pendiri UnB)</li>
+                </ul>
+                <p style="margin-top: 10px; color: #888;">Total: 100 orang pada gelombang pertama. Ribuan menyusul dalam bulan-bulan berikutnya.</p>
+            </div>
+        </div>
+
+        <!-- 11 APRIL 1964: PEMILIHAN CASTELO BRANCO -->
+        <div class="content-card">
+            <h3>11 APRIL 1964: CASTELO BRANCO MENJADI PRESIDEN</h3>
+            <p>Dua hari setelah AI-1, Kongres yang masih berfungsi (meskipun banyak anggotanya telah dicabut mandatnya) mengadakan pemilihan presiden tidak langsung. Satu-satunya kandidat adalah <strong>Jenderal Humberto de Alencar Castelo Branco</strong>, seorang perwira moderat yang diharapkan akan segera mengembalikan kekuasaan kepada sipil. Ia memperoleh 361 suara dari 456 anggota Kongres yang tersisa.</p>
+            <p>Namun, "moderatisme" Castelo Branco hanya bertahan hingga tekanan dari faksi garis keras (linha dura) dalam militer semakin kuat. Rezim yang awalnya direncanakan bersifat sementara mulai mengakar.</p>
+        </div>
+
+        <!-- FOTO GRID: PRESIDEN MILITER -->
+        <h2 style="color: #8b0000; margin: 40px 0 20px 0;">PRESIDEN REZIM MILITER (1964-1985)</h2>
+        
+        <div class="photo-grid-3">
+            <div class="photo-card">
+                <img src="assets/images/Humbert Castelo Branco.jpg" alt="Castelo Branco">
+                <p><strong>Castelo Branco</strong><br>1964-1967</p>
+            </div>
+            <div class="photo-card">
+                <img src="assets/images/Costa e Silva.jpg" alt="Costa e Silva">
+                <p><strong>Costa e Silva</strong><br>1967-1969</p>
+            </div>
+            <div class="photo-card">
+                <img src="assets/images/Garrastazu médici.jpg" alt="Médici">
+                <p><strong>Médici</strong><br>1969-1974</p>
+            </div>
+            <div class="photo-card">
+                <img src="assets/images/Ernesto Geisel.jpg" alt="Geisel">
+                <p><strong>Geisel</strong><br>1974-1979</p>
+            </div>
+            <div class="photo-card">
+                <img src="assets/images/João Figueiredo.jpg" alt="Figueiredo">
+                <p><strong>Figueiredo</strong><br>1979-1985</p>
+            </div>
+        </div>
+
+        <!-- TIMELINE PERKEMBANGAN REZIM -->
+        <h2 style="color: #8b0000; margin: 40px 0 20px 0;">TIMELINE ESKALASI OTORITARIANISME</h2>
+
+        <div class="timeline-compact">
+            <div class="timeline-year">
+                <div class="year-box">1964</div>
+                <div class="year-desc"><strong>AI-1:</strong> Pemilihan presiden tidak langsung, hak politik dibekukan, 100 orang pertama dicabut haknya.</div>
+            </div>
+            <div class="timeline-year">
+                <div class="year-box">1965</div>
+                <div class="year-desc"><strong>AI-2:</strong> Pemilihan presiden tetap tidak langsung, partai politik dibubarkan, digantikan sistem bipartai (ARENA pro-rezim dan MDB oposisi).</div>
+            </div>
+            <div class="timeline-year">
+                <div class="year-box">1966</div>
+                <div class="year-desc"><strong>AI-3:</strong> Pemilihan gubernur juga menjadi tidak langsung.</div>
+            </div>
+            <div class="timeline-year">
+                <div class="year-box">1967</div>
+                <div class="year-desc"><strong>Konstitusi baru:</strong> Disahkan oleh Kongres yang telah "dibersihkan", melembagakan rezim.</div>
+            </div>
+            <div class="timeline-year">
+                <div class="year-box">1968</div>
+                <div class="year-desc"><strong>AI-5 (13 Desember):</strong> "Kudeta dalam kudeta" - puncak otoritarianisme. Kongres ditutup, sensor pers diberlakukan, habeas corpus untuk kejahatan politik dihapus, hukuman mati diizinkan.</div>
+            </div>
+            <div class="timeline-year">
+                <div class="year-box">1969-1974</div>
+                <div class="year-desc"><strong>Tahun-Tahun Timbal (Anos de Chumbo):</strong> Di bawah Médici, represi paling intensif. Gerilyawan perkotaan dihancurkan, penyiksaan sistematis.</div>
+            </div>
+        </div>
+
+        <!-- KUTIPAN PENTING: DEKLARASI AI-5 -->
+        <div class="quote-box">
+            <p>"Revolusi, seperti Saturnus, melahap anak-anaknya sendiri."</p>
+            <div class="quote-source">— Historian Crane Brinton, dikutip dalam analisis tentang radikalisasi rezim</div>
+        </div>
+
+        <!-- REPRESI DAN PENYIKSAAN -->
+        <div class="content-card">
+            <h3>REPRESI DAN PELANGGARAN HAM</h3>
+            <p>Rezim militer Brazil terkenal dengan praktik penyiksaan sistematis terhadap lawan politik. Ribuan orang ditangkap, diinterogasi di bawah siksaan, dan banyak yang tidak pernah terlihat lagi. Komisi Kebenaran Nasional (2014) mengonfirmasi setidaknya 434 kematian atau penghilangan paksa, meskipun organisasi HAM memperkirakan jumlah sebenarnya jauh lebih tinggi.</p>
+            
+            <h4 style="margin-top: 25px;">METODE PENYIKSAAN YANG DIDOKUMENTASIKAN:</h4>
+            <ul style="color: #ccc; margin-left: 20px;">
+                <li><strong>Pau de arara</strong> (tongkat burung beo): korban digantung terbalik dan disetrum</li>
+                <li>Kejutan listrik pada area sensitif</li>
+                <li>Simulasi eksekusi</li>
+                <li>Penenggelaman (geladeira)</li>
+                <li>Pemukulan sistematis</li>
+            </ul>
+
+            <!-- FOTO GRID KORBAN -->
+            <div class="photo-grid-2" style="margin-top: 25px;">
+                <div class="photo-card">
+                    <img src="assets/images/ruben paiva.jpg" alt="Rubens Paiva">
+                    <p>Rubens Paiva (kiri), anggota kongres, diculik dan dibunuh 1971</p>
+                </div>
+                <div class="photo-card">
+                    <img src="assets/images/Vladimir Herzog.jpg" alt="Vladimir Herzog">
+                    <p>Vladimir Herzog, jurnalis, "bunuh diri" di sel tentara 1975</p>
+                </div>
+            </div>
+
+            <button class="btn-classified" onclick="revealDetail('detail-korban')">BUKA KESAKSIAN PENYIKSAAN</button>
+            
+            <div id="detail-korban" class="classified-detail hidden">
+                <h4>DEPOIMEN KORBAN (ARSIP KOMISI KEBENARAN)</h4>
+                <p><em>"Mereka memukuli saya dengan pentungan, lalu menggantung saya di pau de arara. Kabel-kabel diikatkan ke jari kaki, telinga, dan alat kelamin saya. Setiap kali saya menjawab 'tidak tahu', mereka memberi setrum. Saya pingsan tiga kali."</em></p>
+                <p style="margin-top: 10px;">— Mantan tahanan politik, di depan Komisi Kebenaran 2014 (nama dirahasiakan)</p>
+            </div>
+        </div>
+
+        <!-- KASUS IKONIK: ZUZU ANGEL -->
+        <div class="content-card">
+            <h3>KASUS ZUZU ANGEL: IBU YANG BERANI MELAWAN</h3>
+            <p><strong>Zuleika "Zuzu" Angel</strong> adalah perancang busana terkenal Brasil yang putranya, Stuart Edgar Angel Jones, seorang aktivis MR-8, ditangkap dan dibunuh di Base Aérea do Galeão pada 1971. Stuart dilaporkan diikat ke jip militer dan diseret di landasan pacu, lalu dipaksa menghirup gas knalpot hingga meninggal.</p>
+            <p>Zuzu memulai kampanye berani melawan rezim, mencari keadilan untuk putranya di dalam dan luar negeri. Pada 14 April 1976, mobilnya ditabrak oleh dua kendaraan lain di pintu keluar terowongan Dois Irmãos, Rio de Janeiro, dan ia tewas. Sebelumnya, ia telah menulis: <span style="color: #ff6a6a;">"Jika saya ditemukan mati, karena kecelakaan atau cara lain, itu adalah karya pembunuh putra saya yang tercinta."</span></p>
+            <p>Pada 2013, dokumen WikiLeaks mengungkapkan bahwa Kedutaan AS di Brasil menganggap kematiannya "mencurigakan". Investigasi pasca-redemokratisasi mengonfirmasi bahwa itu adalah pembunuhan oleh rezim.</p>
+        </div>
+
+        <!-- KEBERHASILAN EKONOMI: MILAGRE ECONÔMICO -->
+        <div class="content-card">
+            <h3>"KEAJAIBAN EKONOMI" (1968-1973)</h3>
+            <p>Pada akhir 1960-an dan awal 1970-an, Brasil mengalami pertumbuhan ekonomi fenomenal yang dikenal sebagai <strong>"Milagre Econômico"</strong> (Keajaiban Ekonomi). PDB tumbuh rata-rata lebih dari 10% per tahun, dengan puncak 14% pada 1973. Industrialisasi meluas, dan proyek-proyek infrastruktur raksasa (seperti Jembatan Rio-Niterói dan Transamazônica) diluncurkan.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+                <span class="stat-box" style="padding: 10px; min-width: 120px;">PDB 1968-73: ▲ 11.2%/thn</span>
+                <span class="stat-box" style="padding: 10px; min-width: 120px;">Inflasi turun: 25% (1968)</span>
+                <span class="stat-box" style="padding: 10px; min-width: 120px;">Utang luar negeri: ▲ $12,6 M (1973)</span>
+            </div>
+
+            <p>Namun, "keajaiban" ini dibayar dengan harga mahal: utang luar negeri melonjak, upah minimum ditekan di bawah inflasi, dan ketimpangan sosial memburuk. Konsentrasi kekayaan semakin tajam, dan "pai" yang membesar tidak dibagikan secara merata. Rezim menggunakan keberhasilan ekonomi ini untuk propaganda, memperkuat legitimasi di mata kelas menengah.</p>
+        </div>
+
+        <!-- PERAN SIPIL DALAM REZIM -->
+        <div class="content-card">
+            <h3>TANGGUNG JAWAB SIPIL: "KEDIKTATORAN SIPIL-MILITER"</h3>
+            <p>Sejarawan kontemporer menekankan bahwa rezim ini bukan hanya militer. Kongres, partai politik (ARENA), pengusaha, pers, dan kelas menengah memainkan peran penting dalam mendukung dan mempertahankan kediktatoran, terutama pada tahun-tahun awal.</p>
+            
+            <h4>DUKUNGAN AWAL TERHADAP KUDETA:</h4>
+            <ul style="color: #ccc; margin-left: 20px;">
+                <li><strong>Pers:</strong> Hampir semua surat kabar besar (kecuali Última Hora) menyambut gembira jatuhnya Goulart. Correio da Manhã menulis editorial "Fora!" (Keluar!)</li>
+                <li><strong>Kelas menengah:</strong> "Marcha da Família com Deus pela Liberdade" (Pawai Keluarga bersama Tuhan demi Kebebasan) di Sao Paulo dan Rio menunjukkan dukungan massa</li>
+                <li><strong>Gereja Katolik:</strong> Kardinal Jaime Câmara memberkati "kemenangan revolusi"</li>
+                <li><strong>Kongres:</strong> Mendeklarasikan kursi presiden kosong pada 2 April meskipun Goulart masih di Brasil</li>
+                <li><strong>Pengusaha:</strong> Instituto de Pesquisas e Estudos Sociais (IPES) didanai pengusaha untuk kampanye anti-Goulart</li>
+            </ul>
+
+            <p>Namun, dukungan ini mulai pudar setelah tahun 1968, ketika represi meningkat dan AI-5 membungkam oposisi, termasuk sekutu sipil moderat.</p>
+        </div>
+
+        <!-- OPOSISI DAN GERAKAN BAWAH TANAH -->
+        <div class="content-card">
+            <h3>PERLAWANAN TERHADAP REZIM</h3>
+            <p>Oposisi terhadap rezim datang dalam berbagai bentuk: gerilyawan perkotaan dan pedesaan, gerakan mahasiswa, serikat buruh bawah tanah, dan oposisi politik legal melalui MDB (oposisi satu-satunya yang diizinkan).</p>
+            
+            <h4>GERAKAN BERSENJATA:</h4>
+            <ul style="color: #ccc; margin-left: 20px;">
+                <li><strong>ALN (Ação Libertadora Nacional):</strong> Dipimpin Carlos Marighella, mantan anggota Partai Komunis, penulis "Minimanual of the Urban Guerrilla". Marighella terbunuh dalam penyergapan polisi 1969.</li>
+                <li><strong>MR-8 (Movimento Revolucionário 8 de Outubro):</strong> Terkenal karena menculik Duta Besar AS Charles Elbrick 1969 (ditukar dengan 15 tahanan politik).</li>
+                <li><strong>VAR-Palmares:</strong> Dilma Rousseff (presiden Brasil 2011-2016) adalah anggota organisasi ini sebelum ditangkap dan disiksa pada 1970.</li>
+                <li><strong>Gerilya Araguaia (1972-1974):</strong> Gerakan gerilya pedesaan di wilayah Amazon, dihancurkan total oleh tentara. Semua pejuang tewas atau "dihilangkan".</li>
+            </ul>
+
+            <p>Pada 1974, militer berhasil menghancurkan semua kelompok gerilya bersenjata. Namun, perlawanan beralih ke gerakan sosial, serikat buruh (khususnya di São Bernardo do Campo, dipimpin Lula da Silva), dan oposisi parlemen.</p>
+        </div>
+
+        <!-- 1979: UNDANG-UNDANG AMNESTI -->
+        <div class="content-card">
+            <h3>1979: UNDANG-UNDANG AMNESTI</h3>
+            <p>Pada tahun 1979, Presiden João Figueiredo mengeluarkan <strong>Undang-Undang Amnesti (Lei da Anistia)</strong> yang memberikan pengampunan kepada semua pihak yang melakukan "kejahatan politik atau terkait" antara 1961 dan 1979. Secara teori, amnesti ini untuk kedua sisi: gerilyawan yang diasingkan dan aparat keamanan yang melakukan penyiksaan.</p>
+            <p>Namun, dalam praktiknya, undang-undang ini menjadi mekanisme yang melindungi pelaku kejahatan HAM dari tuntutan hukum. Tidak seperti Argentina dan Chile yang kemudian mengadili para pelaku, Brasil mempertahankan impunitas hingga hari ini. Pada 2010, Mahkamah Agung Brasil menegaskan konstitusionalitas undang-undang ini, meskipun Komisi Kebenaran 2014 merekomendasikan agar pelaku kejahatan berat diadili.</p>
+
+            <button class="btn-classified" onclick="revealDetail('detail-amnesty')">BUKA KRITIK PBB TERHADAP UNDANG-UNDANG AMNESTI</button>
+            
+            <div id="detail-amnesty" class="classified-detail hidden">
+                <h4>PERNYATAAN KOMISARIS TINGGI HAM PBB (2012)</h4>
+                <p><em>"Kejahatan serius terhadap hukum internasional tidak boleh diberi amnesti. Kami mendesak Brasil untuk mengambil langkah-langkah untuk mencabut Undang-Undang Amnesti dan memastikan bahwa mereka yang bertanggung jawab atas pelanggaran hak asasi manusia yang serius dibawa ke pengadilan."</em></p>
+            </div>
+        </div>
+
+        <!-- 1985: AKHIR REZIM DAN TRANSISI -->
+        <div class="content-card">
+            <h3>1985: AKHIR REZIM MILITER</h3>
+            <p>Rezim militer berakhir pada 15 Maret 1985, ketika <strong>Tancredo Neves</strong>, seorang politisi sipil, terpilih secara tidak langsung sebagai presiden melalui Kolese Elektoral. Namun, Tancredo jatuh sakit sehari sebelum pelantikan dan meninggal. Wakilnya, <strong>José Sarney</strong> (mantan pendukung rezim yang membelot), dilantik sebagai presiden pertama era demokrasi baru.</p>
+            <p>Transisi ini dikelola dengan hati-hati oleh militer, yang memastikan bahwa mereka tidak akan diadili atas kejahatan masa lalu. Kekuasaan militer sebagai institusi tetap utuh, dan pengaruh mereka dalam politik Brasil terus berlanjut hingga hari ini.</p>
+        </div>
+
+        <!-- DEBAT KONTEMPORER: KONTROVERSI PERAYAAN KUDETA -->
+        <div class="content-card">
+            <h3>WARISAN DAN KONTROVERSI: 2019</h3>
+            <p>Pada 2019, Presiden Jair Bolsonaro, seorang mantan kapten tentara yang secara terbuka mengagumi rezim militer, merencanakan perayaan untuk memperingati kudeta 1964. Rencana ini memicu kemarahan publik.</p>
+            <p>Hakim Ivani Silva da Luz mengeluarkan putusan yang melarang perayaan tersebut, menyatakan bahwa <span style="color: #ff6a6a;">"rencana perayaan kudeta 1964 itu tidak sesuai dengan proses rekonstruksi demokrasi"</span>. Kantor Kejaksaan Agung juga menegaskan bahwa merayakan kudeta berarti merayakan <span style="color: #ff6a6a;">"rezim inkonstitusional yang bertanggung jawab atas kejahatan serius kemanusiaan"</span>.</p>
+            <p>Kasus ini menunjukkan bahwa luka kudeta 1964 masih belum sembuh, dan masyarakat Brasil terus bergulat dengan cara memaknai 21 tahun kediktatoran.</p>
+        </div>
+
+        <!-- KOMISI KEBENARAN 2014 -->
+        <div class="content-card">
+            <h3>KOMISI KEBENARAN NASIONAL (2012-2014)</h3>
+            <p>Pada 2012, Presiden Dilma Rousseff (yang pernah disiksa rezim) membentuk <strong>Komisi Kebenaran Nasional</strong> untuk menyelidiki pelanggaran HAM antara 1946-1988. Laporan akhir setebal 2.000 halaman dirilis pada Desember 2014, mengonfirmasi 434 kematian atau penghilangan paksa dan mengidentifikasi 377 pelaku.</p>
+            <p>Komisi ini tidak memiliki wewenang untuk menuntut, hanya untuk menyelidiki dan melaporkan. Namun, laporannya menjadi catatan sejarah definitif tentang kekejaman rezim dan membantu keluarga korban mengetahui kebenaran tentang nasib orang-orang yang mereka cintai.</p>
+        </div>
+
+        <!-- KESIMPULAN -->
+        <div class="content-card">
+            <h3>KESIMPULAN: 21 TAHUN YANG TAK TERLUPAKAN</h3>
+            <p>Rezim militer Brasil (1964–1985) berdiri di atas paradoks besar sejarah—sebuah monumen yang dipahat dengan ambisi kemajuan sekaligus darah kebebasan. Di satu sisi jembatan waktu, ia adalah arsitek modernisasi; sebuah kekuatan yang memacu roda ekonomi dan mendirikan beton-beton infrastruktur megah di atas tanah Amazonia. Namun di sisi gelap jembatan yang sama, kemajuan itu dibayar dengan mata uang yang paling mahal: pembungkaman sistematis terhadap hak asasi manusia, pemasungan paksa suara-suara oposisi, dan pelapukan perlahan tiang-tiang demokrasi.
+               Dua puluh satu tahun kekuasaan bertangan besi mungkin telah usai di atas kertas, namun bayang-bayangnya menolak pergi dari panggung politik Brasil kontemporer. Militer tidak pernah benar-benar kembali sepenuhnya ke barak; mereka tetap menjadi hantu penentu di koridor kekuasaan sipil. Pada akhirnya, periode ini meninggalkan luka filosofis yang belum mengering: sebuah perdebatan abadi tentang bagaimana sebuah bangsa harus mengeja masa lalunya. <span style="color: #ff6a6a;">Apakah 1964 adalah sebuah penyelamatan yang kokoh, atau justru malam kelam di mana nalar demokrasi sengaja ditidurkan?</span></p>
+        </div>
+
+        <!-- KUTIPAN PENUTUP -->
+        <div class="quote-box">
+            <p>"Setengah abad setelah kudeta, Brasil adalah negara yang berbeda, yang telah menghabiskan hampir tiga dekade dalam sistem demokrasi. Namun, ingatan tentang masa itu masih mengganggu negara ini."</p>
+            <div class="quote-source">— Folha de S.Paulo, 2014</div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-note">
+            <p># DOKUMEN RAHASIA - DEKLASIFIKASI SEBAGIAN 2024 // SUMBER: KOMISI KEBENARAN NASIONAL, ARSIP CIA, ARSIP NASIONAL BRASIL #</p>
+            <p style="margin-top: 10px;">* Beberapa nama korban dan pelaku telah dirahasiakan untuk melindungi privasi keluarga.</p>
+        </div>
+    </div>
+
+    <!-- MODAL PERINGATAN -->
+    <div id="secretModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>PERINGATAN</h2>
+            <p>Akses terhadap dokumen rahasia ini dipantau oleh sistem keamanan. Seluruh aktivitas Anda tercatat.</p>
+            <button onclick="closeModal()">SETUJU</button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk membuka detail dokumen
+        function revealDetail(detailId) {
+            const detailElement = document.getElementById(detailId);
+            const button = event.target;
+            
+            if (detailElement) {
+                detailElement.classList.toggle('hidden');
+                
+                if (detailElement.classList.contains('hidden')) {
+                    button.textContent = button.textContent.replace('TUTUP', 'BUKA');
+                } else {
+                    button.textContent = button.textContent.replace('BUKA', 'TUTUP');
+                    
+                    // Tampilkan modal peringatan pertama kali
+                    if (!localStorage.getItem('warningShownPasca')) {
+                        setTimeout(() => {
+                            document.getElementById('secretModal').style.display = 'block';
+                        }, 300);
+                        localStorage.setItem('warningShownPasca', 'true');
+                    }
+                }
+            }
+        }
+
+        // Fungsi modal
+        function closeModal() {
+            document.getElementById('secretModal').style.display = 'none';
+        }
+
+        // Close modal jika klik di luar
+        window.onclick = function(event) {
+            const modal = document.getElementById('secretModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Log akses
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== DOSSIER 64 - PASCA KUDETA DIAKSES ===');
+            console.log('Waktu: ' + new Date().toLocaleString());
+        });
+    </script>
+</body>
+</html>

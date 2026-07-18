@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERANDA - DOSSIER 64: KUDETA BRAZIL 1964</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                linear-gradient(rgba(139, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* NAVBAR - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .navbar {
+            border-bottom: 2px solid #8b0000;
+            background-color: #0a0a0a;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .dossier {
+            font-size: 1.5rem;
+            color: #8b0000;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .year {
+            font-size: 2rem;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 5px 10px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        /* CONTAINER - SAMA PERSIS */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* PAGE TITLE - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .page-title {
+            font-size: 2.2rem;
+            color: #8b0000;
+            margin-bottom: 10px;
+            border-left: 5px solid #8b0000;
+            padding-left: 15px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+            font-style: italic;
+            padding-left: 20px;
+        }
+
+        /* WARNING BANNER - SAMA PERSIS DENGAN HALAMAN JALANNYA KUDETA */
+        .warning-banner {
+            background-color: #2a0000;
+            border: 2px solid #8b0000;
+            color: #ff6a6a;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* INTRO TEXT - SAMA PERSIS DENGAN HALAMAN LATAR BELAKANG */
+        .intro-text {
+            background-color: #1f1f1f;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 5px solid #8b0000;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .highlight {
+            color: #8b0000;
+            font-weight: bold;
+        }
+
+        /* PHOTO SECTION - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .photo-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #8b0000;
+            font-size: 1.8rem;
+            margin: 40px 0 25px 0;
+            border-left: 5px solid #8b0000;
+            padding-left: 15px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .photo-card {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border: 1px solid #444;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #8b0000;
+        }
+
+        .photo-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .photo-date {
+            color: #8b0000;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        /* STAT GRID - SAMA PERSIS DENGAN HALAMAN PASCA KUDETA */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background-color: #1a1a1a;
+            border: 2px solid #8b0000;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: #8b0000;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-label {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* QUOTE BOX - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .quote-box {
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+            padding: 25px;
+            margin: 40px 0;
+            font-style: italic;
+        }
+
+        .quote-box p {
+            color: #8b0000;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .quote-source {
+            text-align: right;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .quote-context {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* TIMELINE PREVIEW - SAMA PERSIS DENGAN HALAMAN JALANNYA KUDETA */
+        .timeline-preview {
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 15px;
+            background-color: #1f1f1f;
+            border-left: 5px solid #8b0000;
+        }
+
+        .timeline-date {
+            min-width: 120px;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .timeline-desc {
+            padding: 12px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* CONTENT CARD - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .content-card {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-left: 5px solid #8b0000;
+            border-bottom: 1px solid #444;
+            margin: 25px 0;
+        }
+
+        .content-card h3 {
+            color: #8b0000;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .content-card p {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* NAV GRID - UNTUK NAVIGASI KE HALAMAN LAIN */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .nav-card {
+            background-color: #2a2a2a;
+            padding: 25px;
+            text-align: center;
+            border-left: 5px solid #8b0000;
+            border-bottom: 1px solid #444;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #e0e0e0;
+            display: block;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            border-left-width: 8px;
+            background-color: #333;
+        }
+
+        .nav-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .nav-card h4 {
+            color: #8b0000;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .nav-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .nav-badge {
+            display: inline-block;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 3px 10px;
+            font-size: 0.8rem;
+            border-radius: 3px;
+        }
+
+        /* BUTTON - SAMA PERSIS */
+        .btn-classified {
+            background-color: transparent;
+            color: #8b0000;
+            border: 2px solid #8b0000;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin: 15px 0;
+        }
+
+        .btn-classified:hover {
+            background-color: #8b0000;
+            color: #fff;
+        }
+
+        /* CLASSIFIED DETAIL - SAMA PERSIS */
+        .classified-detail {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border: 1px dashed #8b0000;
+        }
+
+        .classified-detail h4 {
+            color: #8b0000;
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* REDACTED EFFECT - SAMA PERSIS DENGAN HALAMAN LATAR */
+        .redacted {
+            background-color: #333;
+            color: transparent;
+            padding: 0 5px;
+            position: relative;
+            cursor: help;
+            border-radius: 3px;
+        }
+
+        .redacted:hover {
+            background-color: #8b0000;
+            color: #fff;
+        }
+
+        .redacted:hover::after {
+            content: attr(data-original);
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background-color: #000;
+            color: #ff0;
+            padding: 5px 10px;
+            border: 1px solid #8b0000;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        /* MODAL - SAMA PERSIS DENGAN HALAMAN LAIN */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            margin: 15% auto;
+            padding: 30px;
+            border: 3px solid #8b0000;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            color: #8b0000;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .modal-content button {
+            background-color: #8b0000;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .close {
+            color: #8b0000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* FOOTER - SAMA PERSIS */
+        .footer-note {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .photo-grid,
+            .nav-grid,
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-date {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR - SAMA PERSIS DENGAN HALAMAN LAIN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="dossier"># DOSSIER</span>
+                <span class="year">64</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">BERANDA</a></li>
+                <li><a href="latar belakang.html">LATAR BELAKANG</a></li>
+                <li><a href="jalannya kudeta.html">JALANNYA KUDETA</a></li>
+                <li><a href="pasca kudeta.html">PASCA KUDETA</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- PAGE TITLE - SAMA PERSIS DENGAN HALAMAN LAIN -->
+        <h1 class="page-title">BERANDA</h1>
+        <div class="sub-title">ARSIP RAHASIA KUDETA BRAZIL 1964</div>
+
+        <!-- WARNING BANNER - SAMA PERSIS DENGAN HALAMAN JALANNYA KUDETA -->
+        <div class="warning-banner" onclick="showModal()">
+            DOKUMEN RAHASIA AKSES TERBATAS SEMUA AKTIVITAS TERCATAT
+        </div>
+
+        <!-- INTRO TEXT - SAMA PERSIS DENGAN HALAMAN LATAR BELAKANG -->
+        <div class="intro-text">
+            <p><span class="highlight">31 Maret 1964</span> adalah tanggal yang mengubah sejarah Brasil selamanya. Kudeta militer yang menggulingkan Presiden João Goulart tidak hanya mengakhiri pemerintahan demokratis, tetapi juga memulai <span class="highlight">21 tahun kediktatoran militer</span> yang ditandai dengan represi, penyiksaan, dan penghilangan paksa.</p>
+            
+            <p>Dokumen-dokumen yang dideklasifikasi ini mengungkap peran <span class="redacted" data-original="CIA">████</span> dalam operasi <span class="redacted" data-original="Operation Brother Sam">██████████████</span>, keterlibatan <span class="redacted" data-original="Amerika Serikat">██████████</span>, serta kronologi lengkap bagaimana demokrasi Brasil runtuh dalam waktu 48 jam. Gunakan navigasi di atas untuk menjelajahi setiap babak dari peristiwa bersejarah ini.</p>
+        </div>
+
+        <!-- FOTO RAHASIA - SAMA PERSIS DENGAN HALAMAN LAIN -->
+        <h2 class="section-title">FOTO RAHASIA</h2>
+        <div class="photo-grid">
+            <div class="photo-card">
+                <div class="photo-date">31 MARET 1964</div>
+                <img src="assets/images/USS.jpg" alt="USS Forrestal">
+                <p class="photo-caption">Kapal induk USS Forrestal, bagian dari Operation Brother Sam, berlayar menuju perairan Brasil.</p>
+            </div>
+            <div class="photo-card">
+                <div class="photo-date">1 APRIL 1964</div>
+                <img src="assets/images/Tank Rio.jpg" alt="Tank di Rio">
+                <p class="photo-caption">Kendaraan lapis baja menduduki pusat kota Rio de Janeiro.</p>
+            </div>
+        </div>
+
+        <!-- STATISTIK CEPAT - SAMA PERSIS DENGAN HALAMAN PASCA KUDETA -->
+        <h2 class="section-title">STATISTIK KUNCI</h2>
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-number">21</div>
+                <div class="stat-label">TAHUN KEDIKTATORAN</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">434</div>
+                <div class="stat-label">KORBAN PENGHILANGAN</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">48</div>
+                <div class="stat-label">JAM KUDETA BERLANGSUNG</div>
+            </div>
+        </div>
+
+        <!-- QUOTE - SAMA PERSIS DENGAN HALAMAN LAIN -->
+        <div class="quote-box">
+            <p>"Saya tidak ingin menjadi presiden yang dekoratif. Saya lebih baik bertahan dengan rakyat saya."</p>
+            <div class="quote-source">— João Goulart kepada Jenderal Amaury Kruel, 31 Maret 1964, pukul 22:00</div>
+            <div class="quote-context">Panggilan telepon terakhir sebelum Kruel bergabung dengan pemberontak</div>
+        </div>
+
+        <!-- TIMELINE SINGKAT - SAMA PERSIS DENGAN HALAMAN JALANNYA KUDETA -->
+        <h2 class="section-title">KRONOLOGI SINGKAT</h2>
+        <div class="timeline-preview">
+            <div class="timeline-item">
+                <div class="timeline-date">31 MAR 1964</div>
+                <div class="timeline-desc">Pergerakan pasukan dari Juiz de Fora dimulai. Operation Brother Sam diluncurkan.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">1 APR 1964</div>
+                <div class="timeline-desc">Goulart meninggalkan Rio menuju Porto Alegre. Pemberontak menguasai Brasil.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2 APR 1964</div>
+                <div class="timeline-desc">Kongres mendeklarasikan kursi presiden kosong. Goulart bersiap ke pengasingan.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">9 APR 1964</div>
+                <div class="timeline-desc">AI-1 dikeluarkan, awal institusionalisasi kediktatoran.</div>
+            </div>
+        </div>
+
+        <!-- DOKUMEN RAHASIA - SAMA PERSIS DENGAN HALAMAN LAIN -->
+        <h2 class="section-title">DOKUMEN RAHASIA</h2>
+        <div class="content-card">
+            <h3>MEMO CIA: ESTIMASI INTELIJEN NASIONAL NO. 93-63</h3>
+            <p>"Jika Goulart terus mendorong reformasi radikal, militer Brazil kemungkinan besar akan melakukan kudeta. AS harus siap memberikan dukungan tidak langsung untuk memastikan pemerintahan baru yang pro-Barat."</p>
+            <button class="btn-classified" onclick="revealDetail('detail-cia')">BUKA DOKUMEN</button>
+            <div id="detail-cia" class="classified-detail hidden">
+                <h4>DOKUMEN DEKLASIFIKASI CIA (1995)</h4>
+                <p><strong>Tanggal:</strong> 27 September 1963</p>
+                <p>"Goulart secara konsisten bergerak ke arah kiri, dikelilingi oleh penasihat komunis. Ada kemungkinan besar Brazil akan keluar dari pengaruh AS dalam waktu 12 bulan. Militer Brazil memiliki kapasitas untuk melakukan intervensi. Disarankan untuk menjaga kontak dengan elemen-elemen ini melalui stasiun CIA di Rio de Janeiro."</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3>OPERATION BROTHER SAM: INSTRUKSI ARMADA</h3>
+            <p>"Armada akan diposisikan di lepas pantai Santos. Jika pasukan 'Castelo' membutuhkan dukungan, kirimkan 600 ton amunisi dalam waktu 24 jam. Presiden Johnson telah memberikan otorisasi penuh."</p>
+            <button class="btn-classified" onclick="revealDetail('detail-brother')">BUKA DOKUMEN</button>
+            <div id="detail-brother" class="classified-detail hidden">
+                <h4>TELEGRAM NAVY DEPARTMENT (31 MARET 1964)</h4>
+                <p>"Kepada Komandan Gugus Tugas 47. Operasi Brother Sam resmi dimulai. USS Forrestal, USS Walker, USS Betelgeuse, dan USS Diamond akan mengambil posisi 200 mil laut di lepas pantai Santos. Tujuan: menyediakan dukungan logistik dan jika diperlukan, intervensi langsung."</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3>SEBUAH SORE YANG TENANG: 30 MARET 1964</h3>
+            <p>"Sore hari, 30 Maret 1964, menjadi titik krusial bagi masa depan demokrasi Brasil. Para konspirator militer terjebak dalam perdebatan sengit mengenai kepastian garis waktu kudeta — apakah akan diluncurkan fajar esok, atau ditangguhkan di bawah kendali Castelo Branco."</p>
+            <button class="btn-classified" onclick="revealDetail('detail-sore30')">BUKA DOKUMEN</button>
+            <div id="detail-sore30" class="classified-detail hidden">
+                <h4>TELEGRAM DARI MINAS GERAIS</h4>
+                <p><strong>Tanggal:</strong> 31 Maret 1964</p>
+                <p>"Kepada Castelo: Jika kita ragu hari ini, kita akan gagal untuk selamanya. Ingatlah, langit tadi malam sudah teramat indah..."</p>
+            </div>
+        </div>
+
+        <!-- FOOTER - SAMA PERSIS DENGAN HALAMAN LAIN -->
+        <div class="footer-note">
+            <p># DOKUMEN RAHASIA - DEKLASIFIKASI SEBAGIAN 2024 // SUMBER: ARSIP NASIONAL BRASIL, CIA, KOMISI KEBENARAN #</p>
+            <p style="margin-top: 10px;">© DOSSIER 64 - Arsip Sejarah Digital</p>
+        </div>
+    </div>
+
+    <!-- MODAL PERINGATAN - SAMA PERSIS DENGAN HALAMAN LAIN -->
+    <div id="secretModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>⚠️ PERINGATAN</h2>
+            <p>Akses terhadap dokumen rahasia ini dipantau oleh sistem keamanan. Seluruh aktivitas Anda tercatat.</p>
+            <button onclick="closeModal()">SETUJU</button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk membuka detail dokumen
+        function revealDetail(detailId) {
+            const detailElement = document.getElementById(detailId);
+            const button = event.target;
+            
+            if (detailElement) {
+                detailElement.classList.toggle('hidden');
+                
+                if (detailElement.classList.contains('hidden')) {
+                    button.textContent = 'BUKA DOKUMEN';
+                } else {
+                    button.textContent = 'TUTUP DOKUMEN';
+                    
+                    // Tampilkan modal peringatan pertama kali
+                    if (!localStorage.getItem('warningShownBeranda')) {
+                        setTimeout(() => {
+                            document.getElementById('secretModal').style.display = 'block';
+                        }, 300);
+                        localStorage.setItem('warningShownBeranda', 'true');
+                    }
+                }
+            }
+        }
+
+        // Fungsi modal
+        function showModal() {
+            document.getElementById('secretModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('secretModal').style.display = 'none';
+        }
+
+        // Close modal jika klik di luar
+        window.onclick = function(event) {
+            const modal = document.getElementById('secretModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Log akses
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== DOSSIER 64 - BERANDA DIAKSES ===');
+            console.log('Waktu: ' + new Date().toLocaleString());
+        });
+    </script>
+</body>
+</html>
